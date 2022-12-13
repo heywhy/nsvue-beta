@@ -1,32 +1,34 @@
 <script lang="ts" setup>
 import {
-  ref,
   computed,
   onMounted,
   onUnmounted,
   $navigateTo,
-} from "nativescript-vue";
-import Details from "./Details.vue";
+} from 'nativescript-vue'
+import { useCounterStore } from '~/stores/counter'
+import Details from './Details.vue'
 
-const counter = ref(0);
+const counter = useCounterStore()
+
 const message = computed(() => {
-  return `Blank {N}-Vue app: ${counter.value}`;
-});
+  return `Blank {N}-Vue app: ${counter.count}`
+})
 
 function logMessage() {
-  console.log("You have tapped the message!");
+  console.log('You have tapped the message!')
 }
 
-let interval: any;
+let interval: any
+
 onMounted(() => {
-  console.log("mounted");
-  interval = setInterval(() => counter.value++, 100);
-});
+  console.log('mounted')
+  interval = setInterval(counter.increment, 1000)
+})
 
 onUnmounted(() => {
-  console.log("unmounted");
-  clearInterval(interval);
-});
+  console.log("unmounted")
+  clearInterval(interval)
+})
 </script>
 
 <template>
@@ -36,7 +38,7 @@ onUnmounted(() => {
         <Label text="Home" class="font-bold text-lg" />
       </ActionBar>
 
-      <GridLayout rows="*, auto, auto, *" class="px-4">
+      <GridLayout rows="*, auto, auto, auto, *" class="px-4">
         <Label
           row="1"
           class="text-xl align-middle text-center text-gray-500"
@@ -49,9 +51,12 @@ onUnmounted(() => {
           @tap="$navigateTo(Details)"
           class="mt-4 px-4 py-2 bg-white border-2 border-blue-400 rounded-lg"
           horizontalAlignment="center"
+          testID="actionBtn"
         >
           View Details
         </Button>
+
+        <Label row="3" class="mt-4 text-center" text="Welcome" />
       </GridLayout>
     </Page>
   </Frame>
