@@ -9,7 +9,10 @@
     "e2e:android:test": "detox test -c android && ./node_modules/.bin/enable-animations",
     "e2e:ios": "yarn run e2e:ios:build && yarn run e2e:ios:test",
     "e2e:ios:build": "detox build -c ios",
-    "e2e:ios:test": "detox test -c ios"
+    "e2e:ios:test": "detox test -c ios",
+    "test:ios": "CI=true yarn run unit:ios && yarn run e2e:ios",
+    "unit:ios": "ns test ios --emulator",
+    "unit:ios:coverage": "yarn run unit:ios --env.codeCoverage"
   },
   "dependencies": {
     "@nativescript/core": "~8.4.0",

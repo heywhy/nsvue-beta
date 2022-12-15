@@ -4,7 +4,7 @@
     "target": "esnext",
     "module": "esnext",
     "moduleResolution": "node",
-    "lib": ["dom", "esnext"],
+    "lib": ["esnext"],
     "sourceMap": true,
     "noEmitHelpers": true,
     "importHelpers": true,

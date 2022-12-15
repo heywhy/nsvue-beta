@@ -1,10 +1,9 @@
 import { createApp } from 'nativescript-vue'
-import { createPinia } from 'pinia'
+import { installPlugins } from './bootstrap'
 import Home from './components/Home.vue'
 
-const pinia = createPinia()
 const app = createApp(Home)
 
-app.use(pinia)
+installPlugins(app)
 
 app.start()
