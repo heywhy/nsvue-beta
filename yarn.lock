@@ -628,14 +628,15 @@
   resolved "https://registry.yarnpkg.com/@nativescript-community/ui-parallax/-/ui-parallax-0.0.2.tgz#d6c41aee08b277de22e98c9671079009b4e71e3c"
   integrity sha512-KTKIf/rotxhwltq4cmeiVShkXtpDBhf3bimbcIHI/oKzvpkU+7ZLP4OXgYChQr3m8KES6f/DkDWEHJ0/aWXzRA==
 
-"@nativescript/core@~8.7.0":
-  version "8.7.2"
-  resolved "https://registry.yarnpkg.com/@nativescript/core/-/core-8.7.2.tgz#b8480fac7e85473b37fc2094b4a92d1f732b5ff7"
-  integrity sha512-b8uqBIrCrh1H4L9yKB1oRVYhXVMJ+gkQnLosvYcEkyVcvoXduT2hp6p18U6VpnrqQZla7KYvdxa2mar28mhElQ==
+"@nativescript/core@~8.9.0":
+  version "8.9.0"
+  resolved "https://registry.yarnpkg.com/@nativescript/core/-/core-8.9.0.tgz#3ca318c1cabbb826450825304badfa1e71df836e"
+  integrity sha512-L5bh0InUdelUCIFnAGMKseKqmn0rw7sDwn22356DYt9wWPhNPA0nFuyTDq9LkZn/nEYGkmC3S8cwHY9PvEE9+Q==
   dependencies:
     "@nativescript/hook" "~2.0.0"
     acorn "^8.7.0"
     css-tree "^1.1.2"
+    css-what "^6.1.0"
     emoji-regex "^10.2.1"
     reduce-css-calc "^2.1.7"
     tslib "^2.0.0"
@@ -660,10 +661,10 @@
     glob "^7.1.0"
     mkdirp "^1.0.4"
 
-"@nativescript/ios@~8.7.0":
-  version "8.7.2"
-  resolved "https://registry.yarnpkg.com/@nativescript/ios/-/ios-8.7.2.tgz#1312bf24a3c8f0ebcacad09ccde32c5b71502091"
-  integrity sha512-z15f5EaZLm6RZEoXRw8J5hzuP1KcmWhZAlXNhtYqHn1npulUzFrcoNmGGhidKmTsLSBEvhRqBgzVyeFxr38iyw==
+"@nativescript/ios@~8.9.0":
+  version "8.9.2"
+  resolved "https://registry.yarnpkg.com/@nativescript/ios/-/ios-8.9.2.tgz#8edf940cc96ff30fd6f1e9d047363fc443102557"
+  integrity sha512-WO8M/brgVDmSxkrXTIpGFVqlEWxATVcsKJ7T7RLBoq4WEBfF35cwuamIK7v4jZNSmZayrgSu+PqZsN4STIbesg==
 
 "@nativescript/tailwind@^2.0.1":
   version "2.1.0"
@@ -673,23 +674,23 @@
     "@csstools/postcss-is-pseudo-class" "4.0.4"
     "@hookun/parse-animation-shorthand" "^0.1.4"
 
-"@nativescript/types-android@8.7.0":
-  version "8.7.0"
-  resolved "https://registry.yarnpkg.com/@nativescript/types-android/-/types-android-8.7.0.tgz#5b8a5ffccd921ebaebe3ce0899438a70fc828933"
-  integrity sha512-ykrhxjEf0/ECyI6dtUEkQZhHLCkKeVZRwPuw658zTGgfXZ4ocaQ5EaCCCLLXy92/VepT0ynLo+MDaXEwAfm7Qg==
+"@nativescript/types-android@8.9.0":
+  version "8.9.0"
+  resolved "https://registry.yarnpkg.com/@nativescript/types-android/-/types-android-8.9.0.tgz#201585b9586c7fc86af0dfa687250b5da7dffe26"
+  integrity sha512-tNfCpfbSu/YMFjEbKk89Kw5VCRn8Y7Kyg4x7YRR5q3urrvhaUD6hBzoLWprrOfHwmoQXVU/eEMleKcrk0/liiw==
 
-"@nativescript/types-ios@8.7.0":
-  version "8.7.0"
-  resolved "https://registry.yarnpkg.com/@nativescript/types-ios/-/types-ios-8.7.0.tgz#6152402f8af62b83bf4d6613b198da0e3d8c16be"
-  integrity sha512-g/tQY67SvIvPex35+Pi5OsNBLmevdYGMJKtCdPRMVcRDJOCNdSMVPkuQ7v8B6IQG7oHEJ6njACAY+jaFw1d58w==
+"@nativescript/types-ios@8.9.0":
+  version "8.9.0"
+  resolved "https://registry.yarnpkg.com/@nativescript/types-ios/-/types-ios-8.9.0.tgz#a63b5706658e75e6138dcbb427a24466128bf0c4"
+  integrity sha512-bEZjbpV7XAwZuM9Hc2IZ+78NGIn2CgsFSsGH+66STnzTX1c4IDbrbp9sN3z3uEtaQDQ+xXaxGfdQNU6dKGkvZw==
 
-"@nativescript/types@~8.7.0":
-  version "8.7.0"
-  resolved "https://registry.yarnpkg.com/@nativescript/types/-/types-8.7.0.tgz#2d4bf8bb9386c08a18ccba759a7cc691b2179eb6"
-  integrity sha512-ipC/sQz6Bic3dvgx1Z4Ec18Mn0dXB1WvZ9fxdtJmwjTtOPr1poRLy6TVwWw9EPasPVmwiZTzFD5dp09PpT02AQ==
+"@nativescript/types@~8.9.0":
+  version "8.9.0"
+  resolved "https://registry.yarnpkg.com/@nativescript/types/-/types-8.9.0.tgz#cf6a9c7e37bae2ce3ba567b4a16ef39ba1887d92"
+  integrity sha512-SCT7qPwh2fKW9JUqRh9MNUk2jzfnnViCnb/BxhPT9bcPDHtaP64ot9SxVDNuU/kVpr80JUvV5zYUSWW/qQv66w==
   dependencies:
-    "@nativescript/types-android" "8.7.0"
-    "@nativescript/types-ios" "8.7.0"
+    "@nativescript/types-android" "8.9.0"
+    "@nativescript/types-ios" "8.9.0"
 
 "@nativescript/unit-test-runner@^3.0.4":
   version "3.0.4"
@@ -1980,6 +1981,11 @@ css-unit-converter@^1.1.1:
   version "1.1.2"
   resolved "https://registry.yarnpkg.com/css-unit-converter/-/css-unit-converter-1.1.2.tgz#4c77f5a1954e6dbff60695ecb214e3270436ab21"
   integrity sha512-IiJwMC8rdZE0+xiEZHeru6YoONC4rfPMqGm2W85jMIbkFvv5nFTwJVFHam2eFrN6txmoUYFAFXiv8ICVeTO0MA==
+
+css-what@^6.1.0:
+  version "6.1.0"
+  resolved "https://registry.yarnpkg.com/css-what/-/css-what-6.1.0.tgz#fb5effcf76f1ddea2c81bdfaa4de44e79bac70f4"
+  integrity sha512-HTUrgRJ7r4dsZKU6GjmpfRK1O76h97Z8MfS1G0FozR+oF2kG6Vfe8JE6zwrkbxigziPHinCJ+gCPjA9EaBDtRw==
 
 css@^3.0.0:
   version "3.0.0"
