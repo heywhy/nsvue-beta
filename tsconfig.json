@@ -4,7 +4,7 @@
     "target": "esnext",
     "module": "esnext",
     "moduleResolution": "node",
-    "lib": ["esnext"],
+    "lib": ["esnext", "WebWorker"],
     "sourceMap": true,
     "noEmitHelpers": true,
     "importHelpers": true,
@@ -13,13 +13,15 @@
       "~/*": ["src/*"],
       "@/*": ["src/*"]
     },
-    "typeRoots": ["types"],
-    "types": ["node", "jasmine"],
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
     "skipLibCheck": true
+  },
+  "vueCompilerOptions": {
+    "target": 3,
+    "lib": "nativescript-vue"
   },
   "include": ["src", "types"],
   "exclude": ["node_modules", "platforms"]

@@ -1,15 +1,10 @@
 <script lang="ts" setup>
 import { EventData, TextField as NSTextField } from '@nativescript/core'
-import {
-  computed,
-  onMounted,
-  onUnmounted,
-  $navigateTo,
-  ref
-} from 'nativescript-vue'
-import { useCounterStore } from '~/stores/counter'
+import { $navigateTo, computed, onMounted, onUnmounted, ref } from 'nativescript-vue'
+import { useCounterStore } from '../stores/counter'
 import Details from './Details.vue'
 import Docker from './Docker.vue'
+import Parallax from './Parallax.vue'
 
 const counter = useCounterStore()
 
@@ -27,7 +22,7 @@ const email = ref<string>('hello world')
 
 onMounted(() => {
   console.log('mounted')
-  interval = setInterval(counter.increment, 1000)
+  interval = setInterval(counter.increment, 10000)
 })
 
 onUnmounted(() => {
@@ -40,12 +35,20 @@ const onInputChange = (e: EventData) => {
 
   email.value = field.text
 }
+
+const onTap = () => {
+  import('./Lottie.vue')
+    // .then(v => $showModal(v.default, {props: {title: 'Loki'}}))
+    // .then(v => console.log('[modal:r]', v))
+    // .catch(console.error)
+    .then(v => $navigateTo(v.default, {props: {title: 'Loki'}}))
+}
 </script>
 
 <template>
   <Frame>
     <Page>
-      <ActionBar>
+      <ActionBar backgroundColor="red">
         <Label text="Home" class="font-bold text-lg" />
       </ActionBar>
 
@@ -60,13 +63,15 @@ const onInputChange = (e: EventData) => {
 
         <Button
           row="2"
-          @tap="$navigateTo(Details)"
+          @tap="onTap"
           class="mt-4 px-4 py-2 bg-white border-2 border-blue-400 rounded-lg"
           horizontalAlignment="center"
           testID="actionBtn"
         >
           View Details
         </Button>
+
+        <Docker v-if="(counter.count % 2) == 0" class="mt-4" msg="Modulu" />
 
         <StackLayout row="3">
           <Label class="mt-4 text-center" :text="`Welcome ${email}`" />

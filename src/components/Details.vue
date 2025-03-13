@@ -12,7 +12,7 @@ const items = ref(
 </script>
 
 <template>
-  <Page actionBarHidden="true">
+  <Page actionBarHidden>
     <GridLayout rows="auto, auto, *">
       <Label
         text="Go Back"

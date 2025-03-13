@@ -33,10 +33,10 @@ describe('A suite', () => {
     expect(btn).toBeDefined()
     expect(btn.text?.trim()).toEqual('View Details')
 
-    expect(labels).toHaveSize(4)
+    expect(labels).toHaveSize(5)
     expect(labels[1]).toEqual(messageLabel)
 
-    jasmine.clock().tick(1000)
+    jasmine.clock().tick(10000)
 
     // wait to allow vue apply updates
     await vm.$nextTick()

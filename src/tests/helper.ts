@@ -14,38 +14,6 @@ export function mount(component: Component, options: MountOptions = {}) {
   return app.mount() as VM
 }
 
-const enum TrasverseAction {
-  KEEP,
-  KEEP_HALT,
-}
-
-const trasverse = <T extends NSVNode>(el: NSVNode, cb: (node: NSVNode) => TrasverseAction | undefined): T[] => {
-  const walk = ([node, ...nodes]: Array<NSVNode | undefined>, result: NSVNode[]): any => {
-    if (!node) return result
-    const action = cb(node)
-    if (action == TrasverseAction.KEEP) result.push(node)
-    if (action == TrasverseAction.KEEP_HALT) {
-      result.push(node)
-      return result
-    }
-
-    return walk(nodes.concat(node.childNodes), result)
-  }
-
-  return walk([el], [])
-}
-
-// findById(vm, 'testID')
-export function findById<T = View>(vm: VM, id: string): Element<T> {
-  const nodes = trasverse<Element<T>>(vm.$el, node => {
-    if (node instanceof NSVElement && node.getAttribute('testID') == id) {
-      return TrasverseAction.KEEP_HALT
-    }
-  })
-
-  return nodes[0]
-}
-
 const parseSelector = (selector: string): Array<string> => {
   const matches = selector.match(/^(\w+)(?:\[(.+)\]$)*/i)
   if (!matches) throw new Error(`Invalid selector ${selector}.`)
@@ -54,26 +22,44 @@ const parseSelector = (selector: string): Array<string> => {
   return [tag.toLowerCase(), testID]
 }
 
+const walk = ([node, ...nodes]: NSVNode[], cb: (node: NSVElement) => any): any => {
+  if (!node) return
+  let result
+  if (node instanceof NSVElement && !!(result = cb(node))) return result
+
+  return walk(node.childNodes.concat(nodes), cb)
+}
+
+const matched = (node: NSVElement, [tagName, testID]: Array<string|undefined>) => {
+  return testID === undefined
+    ? node.tagName == tagName
+    : node.tagName === tagName && node.getAttribute('testID') === testID
+}
+
+// findById(vm, 'testID')
+export function findById<T = View>(vm: VM, id: string): Element<T> {
+  return walk([vm.$el], node => node.getAttribute('testID') == id && node)
+}
+
 // findBy(vm, 'Button')
 // findBy(vm, 'Button[testID]')
 export function findBy<T = View>(vm: VM, selector: string) {
-  const [node] = findAllBy<T>(vm, selector)
+  const query = parseSelector(selector)
 
-  return node
+  return walk([vm.$el], node => matched(node, query) && node)
 }
 
 // findAllBy(vm, 'Button')
 // findAllBy(vm, 'Button[testID]')
 export function findAllBy<T = View>(vm: VM, selector: string) {
-  const [tag, testID] = parseSelector(selector)
+  const elements: NSVElement[] = []
+  const query = parseSelector(selector)
 
-  const nodes = trasverse<Element<T>>(vm.$el, node => {
-    if (!(node instanceof NSVElement)) return
-    const tagName = node.tagName.toLowerCase()
-    if (tagName == tag) return TrasverseAction.KEEP
+  walk([vm.$el], node => {
+    matched(node, query) && elements.push(node)
   })
 
-  return nodes.filter(node => !!testID ? node.getAttribute('testID') == testID : true)
+  return elements
 }
 
 export const fireEvent = {

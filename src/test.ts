@@ -5,6 +5,7 @@ import { runTestApp } from '@nativescript/unit-test-runner'
 
 runTestApp({
 	runTests: () => {
+    // @ts-ignore
 		const tests = require.context('./', true, /\.spec\.ts$/)
 
 		tests.keys().map(tests)
